@@ -1,0 +1,36 @@
+name: refocus
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10.16
+  - pip=25.0
+  - setuptools=75.8.0
+  - wheel=0.45.1
+  - ffmpeg=4.3.2
+  - git
+  - pip:
+      - torch==2.6.0
+      - torchvision==0.21.0
+      - diffusers==0.32.0
+      - transformers==4.50.0
+      - peft==0.15.0
+      - accelerate==1.5.2
+      - huggingface-hub==0.29.3
+      - safetensors==0.5.3
+      - numpy==1.26.0
+      - pillow==9.5.0
+      - opencv-python-headless==4.11.0.86
+      - matplotlib==3.10.1
+      - scipy==1.15.2
+      - einops==0.8.1
+      - kornia==0.8.2
+      - easydict==1.13
+      - tqdm==4.67.1
+      - imageio==2.37.0
+      - imageio-ffmpeg==0.6.0
+      - pyyaml==6.0.2
+      - gradio==5.22.0
+      - spaces==0.32.0
+      - psutil==5.9.8
+      - clip @ git+https://github.com/openai/CLIP.git@d05afc436d78f1c48dc0dbf8e5980a9d471f35f6
