@@ -75,11 +75,10 @@ We use Stable Video Diffusion (SVD), Video Depth Anything, FaRL, ArcFace, OpenAI
 If you use this work, please cite:
 
 ```bibtex
-@misc{gan2026refocusinganyvideo,
-  title  = {Refocusing Any Video: Temporally Consistent Video Refocusing for Dynamic Focal Planes},
-  author = {Gan, Chee Kim and Chiu, Pin-Yen and Fang, I-Sheng and Chen, Jun-Cheng},
-  year   = {2026},
-  note   = {SIGGRAPH Asia 2026},
-  url    = {https://github.com/aiiu-lab/Refocusing-Any-Video}
+@inproceedings{gan2026refocusinganyvideo,
+  title     = {Refocusing Any Video: Temporally Consistent Video Refocusing for Dynamic Focal Planes},
+  author    = {Gan, Chee Kim and Chiu, Pin-Yen and Fang, I-Sheng and Chen, Jun-Cheng},
+  year      = {2026},
+  booktitle = {SIGGRAPH Asia 2026 Conference Papers},
 }
 ```
