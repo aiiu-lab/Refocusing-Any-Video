@@ -38,6 +38,15 @@ When adding a new result:
 3. Reference the file from `index.html`.
 4. Run a quick broken-link check before publishing.
 
+## Quantitative Results
+
+The six tables in `index.html#quantitative` are transcribed from the final manuscript in `../SIGGRAPH_Asia_2026_RAV_Final/`:
+
+- `sec/4_exp.tex`: video refocusing (`tab:main_quant`), Stage 1 (`tab:vdd_combined`), temporal sharpness (`tab:tsc_ablation`), and facial correspondence with Refiner (`tab:fc_ablation`).
+- `sec/X_supp.tex`: full user-study response breakdown (`tab:supp_user_study_details`) and execution time (`supp:tab:runtime`).
+
+Use the source table cells when nearby prose differs. Best/second-best styling follows numerical ranks. User-study percentages include neutral responses; runtime lists DiffCamera's different input resolution explicitly. HTML comments retain each table's source label for future updates.
+
 ## External Dependencies
 
 The page loads these assets from CDNs:

@@ -426,6 +426,62 @@ video,
   text-align: left;
 }
 
+.rav-table {
+  font-variant-numeric: tabular-nums;
+}
+
+.rav-table th,
+.rav-table td {
+  vertical-align: middle;
+}
+
+.rav-table thead th {
+  border-bottom: 2px solid #aaa;
+  white-space: nowrap;
+}
+
+.rav-table tbody th {
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.rav-table td,
+.rav-table thead th:not(:first-child) {
+  text-align: right;
+}
+
+.comparison-table {
+  min-width: 620px;
+}
+
+.user-study-table {
+  min-width: 700px;
+}
+
+.user-study-table td:nth-child(2),
+.user-study-table thead th:nth-child(2) {
+  text-align: left;
+}
+
+.comparison-group-start > * {
+  border-top: 2px solid #ccc;
+}
+
+.ablation-table {
+  min-width: 350px;
+}
+
+.table-note {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.table-container:focus-visible {
+  outline: 2px solid #3273dc;
+  outline-offset: 4px;
+}
+
 .results-copy {
   max-width: 960px;
   margin-left: auto;
@@ -468,6 +524,7 @@ video,
   display: grid;
   gap: 18px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1.4rem;
 }
 
 .result-table-grid .table-container {
@@ -481,9 +538,16 @@ video,
 
 .second {
   color: rgb(0, 90, 200);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
-.ours-row td:first-child {
+.rav-table .ours-row {
+  background: #f5f8fc;
+}
+
+.ours-row td:first-child,
+.rav-table .ours-row th {
   font-weight: 700;
 }
 

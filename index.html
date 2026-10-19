@@ -414,6 +414,203 @@
   </div>
 </section>
 
+<section class="section" id="quantitative" aria-labelledby="quantitative-title">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered" id="quantitative-title">Quantitative Results</h2>
+    <div class="content">
+      <p>
+        We evaluate on 100 held-out videos, each 60 frames long: 50 from UltraVideo-AIF and 50 from CelebV-HQ-AIF.
+        Each dataset includes 25 constant-focus and 25 time-varying-focus clips. Image refocusing baselines are applied frame by frame.
+      </p>
+    </div>
+    <p class="table-note" id="metric-note">
+      ↓ Lower is better. ↑ Higher is better. In method comparisons, <span class="best">red bold</span> marks the best result
+      and <span class="second">blue underlined</span> marks the second best. IDS measures identity similarity on the CelebV-HQ-AIF face subset only.
+    </p>
+
+    <h3 class="title is-4 result-heading" id="refocusing-comparison-title">Video Refocusing</h3>
+    <!-- Source: SIGGRAPH_Asia_2026_RAV_Final/sec/4_exp.tex, tab:main_quant. -->
+    <div class="table-container" role="region" aria-labelledby="refocusing-comparison-title" tabindex="0">
+      <table class="table rav-table comparison-table" aria-describedby="metric-note benchmark-note">
+        <caption>Full refocusing pipeline on the combined benchmark.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Method</th>
+            <th scope="col">LPIPS ↓</th>
+            <th scope="col">FVD ↓</th>
+            <th scope="col">tOF ↓</th>
+            <th scope="col">tLP ↓</th>
+            <th scope="col">IDS ↑</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">DiffCamera</th>
+            <td>0.2457</td><td>413.47</td><td class="second">3.0925</td><td>0.0543</td><td>0.5523</td>
+          </tr>
+          <tr>
+            <th scope="row">Learn2Refocus</th>
+            <td>0.2464</td><td>478.66</td><td>3.2605</td><td class="second">0.0434</td><td>0.5206</td>
+          </tr>
+          <tr>
+            <th scope="row">Genfocus</th>
+            <td class="best">0.1545</td><td class="second">323.62</td><td>3.9520</td><td>0.0588</td><td class="second">0.7347</td>
+          </tr>
+          <tr class="ours-row">
+            <th scope="row">RAV (ours)</th>
+            <td class="second">0.1598</td><td class="best">264.89</td><td class="best">2.2586</td><td class="best">0.0095</td><td class="best">0.7766</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="content">
+      <p>
+        RAV achieves the best FVD, tOF, tLP, and identity similarity, while Genfocus achieves the lowest LPIPS.
+      </p>
+      <p class="table-note" id="benchmark-note">
+        Inputs and target refocused videos are synthesized with BokehMe. These metrics measure agreement with the synthesized references;
+        the user study below complements them with direct perceptual judgments.
+      </p>
+    </div>
+
+    <h3 class="title is-4 result-heading" id="user-study-title">User Study</h3>
+    <div class="content">
+      <p>
+        95 participants compare anonymized outputs on 12 videos for temporal consistency and spatial refocusing accuracy.
+        Percentages below include all valid responses, including “None / difficult to judge.”
+      </p>
+    </div>
+    <!-- Source: SIGGRAPH_Asia_2026_RAV_Final/sec/X_supp.tex, tab:supp_user_study_details. -->
+    <div class="table-container" role="region" aria-labelledby="user-study-title" tabindex="0">
+      <table class="table rav-table user-study-table" aria-describedby="user-study-note">
+        <caption>Pairwise preferences for RAV, the compared baseline, or no preference.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Comparison</th>
+            <th scope="col">Criterion</th>
+            <th scope="col">RAV</th>
+            <th scope="col">Baseline</th>
+            <th scope="col">None /<br>difficult to judge</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">vs. DiffCamera</th><td>Temporal consistency</td>
+            <td><strong>78.24%</strong></td><td>11.51%</td><td>10.25%</td>
+          </tr>
+          <tr>
+            <th scope="row">vs. DiffCamera</th><td>Spatial refocusing accuracy</td>
+            <td><strong>71.44%</strong></td><td>16.53%</td><td>12.03%</td>
+          </tr>
+          <tr class="comparison-group-start">
+            <th scope="row">vs. Learn2Refocus</th><td>Temporal consistency</td>
+            <td><strong>66.98%</strong></td><td>22.01%</td><td>11.01%</td>
+          </tr>
+          <tr>
+            <th scope="row">vs. Learn2Refocus</th><td>Spatial refocusing accuracy</td>
+            <td><strong>65.30%</strong></td><td>25.16%</td><td>9.54%</td>
+          </tr>
+          <tr class="comparison-group-start">
+            <th scope="row">vs. Genfocus</th><td>Temporal consistency</td>
+            <td><strong>78.97%</strong></td><td>8.26%</td><td>12.76%</td>
+          </tr>
+          <tr>
+            <th scope="row">vs. Genfocus</th><td>Spatial refocusing accuracy</td>
+            <td><strong>64.54%</strong></td><td>15.27%</td><td>20.19%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note" id="user-study-note">Each row sums to approximately 100% due to rounding. Bold marks the most selected response.</p>
+
+    <h3 class="title is-4 result-heading" id="vdd-comparison-title">Stage 1: Video Defocus Deblurring</h3>
+    <!-- Source: SIGGRAPH_Asia_2026_RAV_Final/sec/4_exp.tex, tab:vdd_combined. -->
+    <div class="table-container" role="region" aria-labelledby="vdd-comparison-title" tabindex="0">
+      <table class="table rav-table comparison-table" aria-describedby="metric-note vdd-note">
+        <caption>All-in-focus intermediate outputs compared with ground-truth all-in-focus videos on the full benchmark.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Method</th>
+            <th scope="col">LPIPS ↓</th>
+            <th scope="col">FVD ↓</th>
+            <th scope="col">tOF ↓</th>
+            <th scope="col">tLP ↓</th>
+            <th scope="col">IDS ↑</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">DiffCamera</th>
+            <td>0.2507</td><td>430.54</td><td class="second">3.5819</td><td class="second">0.0639</td><td>0.6776</td>
+          </tr>
+          <tr>
+            <th scope="row">Genfocus</th>
+            <td class="best">0.2096</td><td class="second">389.03</td><td>9.7415</td><td>0.0962</td><td class="second">0.7491</td>
+          </tr>
+          <tr class="ours-row">
+            <th scope="row">RAV (ours)</th>
+            <td class="second">0.2098</td><td class="best">263.60</td><td class="best">2.6953</td><td class="best">0.0077</td><td class="best">0.7846</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note" id="vdd-note">Learn2Refocus is omitted because it does not produce an explicit all-in-focus output.</p>
+
+    <h3 class="title is-4 result-heading" id="ablation-title">Core Ablations</h3>
+    <p class="table-note" id="ablation-note">Both ablations evaluate Stage 1 on CelebV-HQ-AIF. Lower is better for all metrics; bold marks the better variant.</p>
+    <div class="result-table-grid">
+      <!-- Source: SIGGRAPH_Asia_2026_RAV_Final/sec/4_exp.tex, tab:tsc_ablation. -->
+      <div class="table-container" role="region" aria-labelledby="tsc-caption" tabindex="0">
+        <table class="table rav-table ablation-table" aria-describedby="ablation-note tsc-note">
+          <caption id="tsc-caption">Temporal Sharpness Consistency Loss (L<sub>TSC</sub>)</caption>
+          <thead>
+            <tr><th scope="col">Variant</th><th scope="col">MMD ↓</th><th scope="col">tLP ↓</th><th scope="col">FVD ↓</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Without L<sub>TSC</sub></th><td>0.00605</td><td>0.0158</td><td><strong>262.76</strong></td></tr>
+            <tr class="ours-row"><th scope="row">With L<sub>TSC</sub></th><td><strong>0.00575</strong></td><td><strong>0.0080</strong></td><td>263.60</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Source: SIGGRAPH_Asia_2026_RAV_Final/sec/4_exp.tex, tab:fc_ablation. -->
+      <div class="table-container" role="region" aria-labelledby="fc-caption" tabindex="0">
+        <table class="table rav-table ablation-table" aria-describedby="ablation-note fc-note">
+          <caption id="fc-caption">Facial Correspondence Loss (L<sub>FC</sub>) and Refiner</caption>
+          <thead>
+            <tr><th scope="col">Variant</th><th scope="col">LD ↓</th><th scope="col">LVD ↓</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Without both</th><td>2.563</td><td>0.719</td></tr>
+            <tr class="ours-row"><th scope="row">With both</th><td><strong>2.503</strong></td><td><strong>0.700</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content table-note">
+      <p id="tsc-note">MMD is the squared maximum mean discrepancy between per-frame Laplacian-variance sequences. L<sub>TSC</sub> improves sharpness-distribution alignment and tLP, with a small increase in FVD.</p>
+      <p id="fc-note">LD is Landmark Distance; LVD is Landmark Velocity Distance. Removing L<sub>FC</sub> also removes its associated Refiner module.</p>
+    </div>
+
+    <h3 class="title is-4 result-heading" id="runtime-title">Execution Time</h3>
+    <!-- Source: SIGGRAPH_Asia_2026_RAV_Final/sec/X_supp.tex, supp:tab:runtime. -->
+    <div class="table-container" role="region" aria-labelledby="runtime-title" tabindex="0">
+      <table class="table rav-table" aria-describedby="runtime-note">
+        <caption>Runtime for an 80-frame video on an NVIDIA RTX Pro 6000 (Blackwell) GPU and Intel Xeon 6517P CPU. Bold marks the lowest reported time.</caption>
+        <thead>
+          <tr><th scope="col">Method</th><th scope="col">Resolution</th><th scope="col">Time (s) ↓</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">DiffCamera<sup>†</sup></th><td>512 × 512</td><td>1283</td></tr>
+          <tr><th scope="row">Learn2Refocus</th><td>512 × 896</td><td>2104</td></tr>
+          <tr><th scope="row">Genfocus</th><td>512 × 896</td><td>1772</td></tr>
+          <tr class="ours-row"><th scope="row">RAV (ours)</th><td>512 × 896</td><td><strong>731</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note" id="runtime-note">† DiffCamera is evaluated at 512 × 512 because its released model does not support 512 × 896 inputs; its runtime uses a different resolution.</p>
+  </div>
+</section>
+
 <section class="section" id="bibtex" aria-labelledby="bibtex-title">
   <div class="container is-max-desktop">
     <h2 class="title is-3" id="bibtex-title">BibTeX</h2>
