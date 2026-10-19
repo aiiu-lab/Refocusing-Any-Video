@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Refocusing Any Video project page.">
+  <meta name="keywords" content="Refocusing Any Video, Refocus Any Things, video refocusing, dynamic focal planes, video bokeh">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Refocusing Any Video</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script defer src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="#results">Results</a>
+      <a class="navbar-item" href="#zoom-insets">Zoom Insets</a>
+      <a class="navbar-item" href="#quantitative">Quantitative</a>
+      <a class="navbar-item" href="#bibtex">BibTeX</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero publication-header">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            Refocusing Any Video: Temporally Consistent Video Refocusing for Dynamic Focal Planes
+          </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://gancheekim.github.io/kennygan.github.io/" target="_blank" rel="noopener noreferrer">Chee Kim Gan</a>,</span>
+            <span class="author-block"><a href="https://itsnickchiu.github.io/" target="_blank" rel="noopener noreferrer">Pin-Yen Chiu</a>,</span>
+            <span class="author-block"><a href="https://ishengfang.github.io/" target="_blank" rel="noopener noreferrer">I-Sheng Fang</a>,</span>
+            <span class="author-block"><a href="https://homepage.citi.sinica.edu.tw/pages/pullpull/index_en.html" target="_blank" rel="noopener noreferrer">Jun-Cheng Chen</a></span>
+          </div>
+          <div class="is-size-5 publication-affiliation">
+            Research Center for Information Technology Innovation, Academia Sinica
+          </div>
+          <p class="is-size-5 publication-venue">SIGGRAPH Asia 2026</p>
+          <div class="publication-links">
+            <a class="button is-dark is-rounded" href="https://github.com/aiiu-lab/Refocusing-Any-Video" target="_blank" rel="noopener noreferrer">
+              <span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span>
+              <span>Code</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-video">
+    <div class="hero-body">
+      <div class="columns is-centered teaser-grid">
+        <div class="column">
+          <div class="item teaser-item">
+            <video class="autoplay-media" src="./asset/results/Video2/input_web.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            <div class="result-caption">Input video</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="item teaser-item">
+            <video class="autoplay-media" src="./asset/results/Video2/output_map_web.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            <div class="result-caption">Target focus map</div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="item teaser-item">
+            <video class="autoplay-media" src="./asset/results/Video2/rav_stage2_refocus_web.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            <div class="result-caption">RAV output</div>
+          </div>
+        </div>
+      </div>
+      <h2 class="subtitle has-text-centered">
+        TL;DR: Refocus anything in a video after capture. We render smooth, temporally consistent bokeh at user-specified dynamic focal planes.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Video refocusing enables the focal plane of a shot to be adjusted after capture, even when the original video was recorded with arbitrary and time-varying focus. Existing video restoration methods assume static blur kernels and become unstable under dynamic focus, while video bokeh methods require restrictive inputs. We present <span class="rav">Refocusing Any Video</span> (RAV), a video refocusing framework that renders temporally smooth bokeh at user-specified dynamic focal planes. RAV introduces temporal sharpness and face-aware correspondence constraints for stable video refocusing under severe defocus. Experiments show stronger temporal consistency, identity preservation, and overall refocus quality than image refocusing baselines.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="results">
+  <div class="container is-max-video">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Dynamic Refocusing Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            This example shows the original defocused video, the input and target focal-plane maps, and the final refocused video.
+          </p>
+        </div>
+
+        <div class="comparison-grid four-up">
+          <div class="item">
+            <video class="autoplay-media" src="./asset/results/Video2/input_web.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            <div class="result-caption">Input</div>
+          </div>
+          <div class="item">
+            <video class="autoplay-media" src="./asset/results/Video2/input_map_web.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            <div class="result-caption">Input focus map</div>
+          </div>
+          <div class="item">
+            <video class="autoplay-media" src="./asset/results/Video2/output_map_web.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            <div class="result-caption">Target focus map</div>
+          </div>
+          <div class="item">
+            <video class="autoplay-media" src="./asset/results/Video2/rav_stage2_refocus_web.mp4" autoplay muted loop playsinline preload="metadata"></video>
+            <div class="result-caption">RAV output</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="zoom-insets">
+  <div class="container is-max-video">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Zoom-Inset Comparison</h2>
+        <div class="content has-text-justified">
+          <p>
+            The zoom-inset videos show local detail and temporal behavior under the same target focus setting.
+          </p>
+        </div>
+        <div class="zoom-carousel" data-zoom-carousel data-interval="7000">
+          <button class="zoom-carousel-arrow is-left" type="button" aria-label="Previous zoom-inset sample">
+          </button>
+          <div class="zoom-carousel-viewport">
+            <article class="zoom-carousel-slide is-active" aria-hidden="false">
+              <div class="comparison-grid zoom-inset-grid">
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/04b9b8a5-4527-4d16-8eda-3daf06a2fb50_tv/input_r1x416_y324_s128_cred-0-9_bottomleft_r2x482_y92_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/04b9b8a5-4527-4d16-8eda-3daf06a2fb50_tv/gt_r1x416_y324_s128_cred-0-9_bottomleft_r2x482_y92_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Ground truth</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/04b9b8a5-4527-4d16-8eda-3daf06a2fb50_tv/diffcamera_r1x416_y324_s128_cred-0-9_bottomleft_r2x482_y92_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">DiffCamera</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/04b9b8a5-4527-4d16-8eda-3daf06a2fb50_tv/genfocus_r1x416_y324_s128_cred-0-9_bottomleft_r2x482_y92_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Genfocus</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/04b9b8a5-4527-4d16-8eda-3daf06a2fb50_tv/learn2refocus_r1x416_y324_s128_cred-0-9_bottomleft_r2x482_y92_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Learn2Refocus</div>
+                </div>
+                <div class="item ours">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/04b9b8a5-4527-4d16-8eda-3daf06a2fb50_tv/ours_r1x416_y324_s128_cred-0-9_bottomleft_r2x482_y92_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">RAV (ours)</div>
+                </div>
+              </div>
+            </article>
+            <article class="zoom-carousel-slide" aria-hidden="true">
+              <div class="comparison-grid zoom-inset-grid">
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/12749f9c-c018-4190-9950-425780029a93_tc/input_r1x541_y324_s128_cred-0-9_bottomleft_r2x867_y184_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/12749f9c-c018-4190-9950-425780029a93_tc/gt_r1x541_y324_s128_cred-0-9_bottomleft_r2x867_y184_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Ground truth</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/12749f9c-c018-4190-9950-425780029a93_tc/diffcamera_r1x541_y324_s128_cred-0-9_bottomleft_r2x867_y184_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">DiffCamera</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/12749f9c-c018-4190-9950-425780029a93_tc/genfocus_r1x541_y324_s128_cred-0-9_bottomleft_r2x867_y184_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Genfocus</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/12749f9c-c018-4190-9950-425780029a93_tc/learn2refocus_r1x541_y324_s128_cred-0-9_bottomleft_r2x867_y184_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Learn2Refocus</div>
+                </div>
+                <div class="item ours">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/12749f9c-c018-4190-9950-425780029a93_tc/ours_r1x541_y324_s128_cred-0-9_bottomleft_r2x867_y184_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">RAV (ours)</div>
+                </div>
+              </div>
+            </article>
+            <article class="zoom-carousel-slide" aria-hidden="true">
+              <div class="comparison-grid zoom-inset-grid">
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/59afacb3-adb5-44fe-9dab-4194b68417c8_tc/input_r1x346_y314_s96_cred-0-9_bottomleft_r2x613_y115_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/59afacb3-adb5-44fe-9dab-4194b68417c8_tc/gt_r1x346_y314_s96_cred-0-9_bottomleft_r2x613_y115_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Ground truth</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/59afacb3-adb5-44fe-9dab-4194b68417c8_tc/diffcamera_r1x346_y314_s96_cred-0-9_bottomleft_r2x613_y115_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">DiffCamera</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/59afacb3-adb5-44fe-9dab-4194b68417c8_tc/genfocus_r1x346_y314_s96_cred-0-9_bottomleft_r2x613_y115_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Genfocus</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/59afacb3-adb5-44fe-9dab-4194b68417c8_tc/learn2refocus_r1x346_y314_s96_cred-0-9_bottomleft_r2x613_y115_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Learn2Refocus</div>
+                </div>
+                <div class="item ours">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/59afacb3-adb5-44fe-9dab-4194b68417c8_tc/ours_r1x346_y314_s96_cred-0-9_bottomleft_r2x613_y115_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">RAV (ours)</div>
+                </div>
+              </div>
+            </article>
+            <article class="zoom-carousel-slide" aria-hidden="true">
+              <div class="comparison-grid zoom-inset-grid">
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/a292e712-f9ea-4763-8e1a-ac56621a5d1b_tc/input_r1x518_y314_s96_cred-0-9_bottomleft_r2x832_y184_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/a292e712-f9ea-4763-8e1a-ac56621a5d1b_tc/gt_r1x518_y314_s96_cred-0-9_bottomleft_r2x832_y184_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Ground truth</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/a292e712-f9ea-4763-8e1a-ac56621a5d1b_tc/diffcamera_r1x518_y314_s96_cred-0-9_bottomleft_r2x832_y184_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">DiffCamera</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/a292e712-f9ea-4763-8e1a-ac56621a5d1b_tc/genfocus_r1x518_y314_s96_cred-0-9_bottomleft_r2x832_y184_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Genfocus</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/a292e712-f9ea-4763-8e1a-ac56621a5d1b_tc/learn2refocus_r1x518_y314_s96_cred-0-9_bottomleft_r2x832_y184_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Learn2Refocus</div>
+                </div>
+                <div class="item ours">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/a292e712-f9ea-4763-8e1a-ac56621a5d1b_tc/ours_r1x518_y314_s96_cred-0-9_bottomleft_r2x832_y184_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">RAV (ours)</div>
+                </div>
+              </div>
+            </article>
+            <article class="zoom-carousel-slide" aria-hidden="true">
+              <div class="comparison-grid zoom-inset-grid">
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/b27e6f4c-fb68-489d-92d1-3180882e4266_tv/input_r1x432_y134_s96_cred-0-9_bottomleft_r2x806_y170_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/b27e6f4c-fb68-489d-92d1-3180882e4266_tv/gt_r1x432_y134_s96_cred-0-9_bottomleft_r2x806_y170_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Ground truth</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/b27e6f4c-fb68-489d-92d1-3180882e4266_tv/diffcamera_r1x432_y134_s96_cred-0-9_bottomleft_r2x806_y170_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">DiffCamera</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/b27e6f4c-fb68-489d-92d1-3180882e4266_tv/genfocus_r1x432_y134_s96_cred-0-9_bottomleft_r2x806_y170_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Genfocus</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/b27e6f4c-fb68-489d-92d1-3180882e4266_tv/learn2refocus_r1x432_y134_s96_cred-0-9_bottomleft_r2x806_y170_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Learn2Refocus</div>
+                </div>
+                <div class="item ours">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/b27e6f4c-fb68-489d-92d1-3180882e4266_tv/ours_r1x432_y134_s96_cred-0-9_bottomleft_r2x806_y170_s84_ccyan-0-9_bottomright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">RAV (ours)</div>
+                </div>
+              </div>
+            </article>
+            <article class="zoom-carousel-slide" aria-hidden="true">
+              <div class="comparison-grid zoom-inset-grid">
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/d4bdcc6f-b5da-4caf-9d56-d791d2408fb1_tv/input_r1x175_y138_s84_cred-0-9_bottomleft_r2x605_y358_s96_ccyan-0-9_topright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/d4bdcc6f-b5da-4caf-9d56-d791d2408fb1_tv/gt_r1x175_y138_s84_cred-0-9_bottomleft_r2x605_y358_s96_ccyan-0-9_topright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Ground truth</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/d4bdcc6f-b5da-4caf-9d56-d791d2408fb1_tv/diffcamera_r1x175_y138_s84_cred-0-9_bottomleft_r2x605_y358_s96_ccyan-0-9_topright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">DiffCamera</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/d4bdcc6f-b5da-4caf-9d56-d791d2408fb1_tv/genfocus_r1x175_y138_s84_cred-0-9_bottomleft_r2x605_y358_s96_ccyan-0-9_topright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Genfocus</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/d4bdcc6f-b5da-4caf-9d56-d791d2408fb1_tv/learn2refocus_r1x175_y138_s84_cred-0-9_bottomleft_r2x605_y358_s96_ccyan-0-9_topright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Learn2Refocus</div>
+                </div>
+                <div class="item ours">
+                  <video class="autoplay-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="./asset/zoom_insets/d4bdcc6f-b5da-4caf-9d56-d791d2408fb1_tv/ours_r1x175_y138_s84_cred-0-9_bottomleft_r2x605_y358_s96_ccyan-0-9_topright_inset230_web.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">RAV (ours)</div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <button class="zoom-carousel-arrow is-right" type="button" aria-label="Next zoom-inset sample">
+          </button>
+          <div class="zoom-carousel-dots" role="tablist" aria-label="Zoom-inset samples">
+            <button class="is-active" type="button" aria-label="Show zoom-inset sample 1" aria-current="true"></button>
+            <button type="button" aria-label="Show zoom-inset sample 2"></button>
+            <button type="button" aria-label="Show zoom-inset sample 3"></button>
+            <button type="button" aria-label="Show zoom-inset sample 4"></button>
+            <button type="button" aria-label="Show zoom-inset sample 5"></button>
+            <button type="button" aria-label="Show zoom-inset sample 6"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="bibtex" aria-labelledby="bibtex-title">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="bibtex-title">BibTeX</h2>
+    <pre class="citation"><code>@inproceedings{gan2026refocusinganyvideo,
+  title     = {Refocusing Any Video: Temporally Consistent Video Refocusing for Dynamic Focal Planes},
+  author    = {Gan, Chee Kim and Chiu, Pin-Yen and Fang, I-Sheng and Chen, Jun-Cheng},
+  year      = {2026},
+  booktitle = {SIGGRAPH Asia 2026 Conference Papers},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://github.com/nerfies/nerfies.github.io">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website follows the style and structure of the <a href="https://nerfies.github.io/">Nerfies project page</a>. Their website is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

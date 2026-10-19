@@ -1,85 +1,56 @@
-# Refocusing Any Video: Temporally Consistent Video Refocusing for Dynamic Focal Planes
+# Refocusing Any Video Project Page
 
-**SIGGRAPH Asia 2026**
+This directory contains the static project page for **Refocusing Any Video: Temporally Consistent Video Refocusing for Dynamic Focal Planes**.
 
-Chee Kim Gan, [Pin-Yen Chiu](https://itsnickchiu.github.io/), I-Sheng Fang, Jun-Cheng Chen  
-Research Center for Information Technology Innovation, Academia Sinica
+The page is a self-contained HTML/CSS/JavaScript site that presents the paper abstract, qualitative results, zoom-inset baseline comparisons, and quantitative tables for the SIGGRAPH Asia 2026 submission.
 
-Refocusing Any Video (RAV) recovers an all-in-focus video with **Video Defocus Deblurring (VDD)**, then uses **Video Bokeh Rendering (VBR)** to refocus it at a chosen focal plane. Optional identity adapters guide face restoration using reference images.
+## Structure
 
-[Models](https://huggingface.co/nickchiu/Refocusing-Any-Video) · [Inference guide](docs/inference_guide.md)
+```text
+.
+├── index.html              # Main project page
+├── static/
+│   ├── css/index.css       # Page layout and responsive styling
+│   └── js/index.js         # Navbar, video playback, and zoom carousel behavior
+└── asset/
+    ├── results/            # Main result videos
+    └── zoom_insets/        # Zoom-inset carousel videos
+```
 
-## Release status
+## Local Preview
 
-- [x] Inference code and pretrained checkpoints
-- [ ] Training code — being prepared for a future release
-
-## Environment
-
-Run all commands from the cloned repository root. Use Linux, an NVIDIA GPU with a CUDA-compatible driver, and Conda.
+No build step is required. Open `index.html` directly in a browser, or serve this directory with any static file server:
 
 ```bash
-conda env create -f setup/environment.yaml
-conda activate refocus
+python3 -m http.server 8000
 ```
 
-See [environment checks](docs/dependencies.md) if setup fails.
+Then visit `http://localhost:8000`.
 
-## Checkpoints
+## Asset Policy
 
-Download the checkpoints from [our Hugging Face repository](https://huggingface.co/nickchiu/Refocusing-Any-Video) into `checkpoints/`, preserving the directory structure:
+The page keeps only the compressed `*_web.mp4` files referenced by `index.html`. Source GIFs, uncompressed/original MP4 files, and unused comparison videos were removed to keep the project page lightweight.
 
-```bash
-python tools/checkpoints/transfer_checkpoints.py download \
-  --repo-id nickchiu/Refocusing-Any-Video --local-dir ./checkpoints
-```
+When adding a new result:
 
-Also download the SVD base, depth, and face models following the [checkpoint setup guide](checkpoints/README.md). Complete its file check before inference.
+1. Export a browser-friendly MP4, preferably named with the `*_web.mp4` suffix.
+2. Place it under the matching folder in `asset/results/` or `asset/zoom_insets/`.
+3. Reference the file from `index.html`.
+4. Run a quick broken-link check before publishing.
 
-## Inference
+## External Dependencies
 
-Place your video at `inputs/input.mp4`, then run:
+The page loads these assets from CDNs:
 
-```bash
-# 1. Estimate depth.
-python VideoDepthAnything/infer_video_depth.py \
-  --input ./inputs/input.mp4 --output ./inputs/depth.mp4
+- Google Fonts
+- Bulma CSS
+- Font Awesome CSS
 
-# 2. Recover the all-in-focus video.
-INPUT_VIDEO=./inputs/input.mp4 OUTPUT_DIR=./results/vdd \
-  FP16=1 bash infer_vdd.sh
+The custom fallback styles in `static/css/index.css` cover the page's core layout for local viewing, but the CDN styles should remain available for the intended presentation.
 
-# 3. Refocus the video.
-INPUT_VIDEO=./results/vdd/output.mp4 DEPTH_INPUT=./inputs/depth.mp4 \
-FOCAL_PLANE=0.5 COC=27 OUTPUT_DIR=./results/vbr \
-  FP16=1 bash infer_vbr_defocus_map.sh
-```
+## Maintenance Checklist
 
-The final video is **`results/vbr/output.mp4`**. Both VDD and VBR also save PNG frames in their output directory's `frames/` folder.
-
-| Option | Purpose |
-| --- | --- |
-| `FOCAL_PLANE` | Focus disparity: `0` is far, `1` is near. A text file can specify one value per frame. |
-| `COC` | Bokeh strength; larger values increase defocus. |
-| `HEIGHT`, `WIDTH` | Set inference resolution; preserve the input aspect ratio. Baseline VDD/VBR use the input size by default. |
-| `OUTPUT_FPS` | Integer output playback rate, default `24`; frames are not resampled and audio is omitted. |
-
-Keep RGB and depth frame counts, order, and framing aligned. For lower memory use, reduce resolution or append `--decode_chunk_size 4` to the launcher. See the [inference guide](docs/inference_guide.md) for identity guidance, Track4Gen, moving focus, and the optional Gradio demo.
-
-## Acknowledgments
-
-We use Stable Video Diffusion (SVD), Video Depth Anything, FaRL, ArcFace, OpenAI CLIP, and facenet-pytorch. See [third-party notices](THIRD_PARTY_NOTICES.md) and [model licensing](https://huggingface.co/nickchiu/Refocusing-Any-Video#models-and-licenses).
-
-## Citation
-
-If you use this work, please cite:
-
-```bibtex
-@misc{gan2026refocusinganyvideo,
-  title  = {Refocusing Any Video: Temporally Consistent Video Refocusing for Dynamic Focal Planes},
-  author = {Gan, Chee Kim and Chiu, Pin-Yen and Fang, I-Sheng and Chen, Jun-Cheng},
-  year   = {2026},
-  note   = {SIGGRAPH Asia 2026},
-  url    = {https://github.com/aiiu-lab/Refocusing-Any-Video}
-}
-```
+- Keep all video paths relative to `index.html`.
+- Prefer compressed web MP4s over GIFs for page weight and playback performance.
+- Avoid committing generated source videos unless they are directly used by the page.
+- Test the page on both desktop and mobile widths after editing the layout or carousel.
