@@ -26,9 +26,12 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start">
+      <a class="navbar-item" href="#fast-forward">Fast Forward</a>
       <a class="navbar-item" href="#results">Results</a>
+      <a class="navbar-item" href="#baselines">Baseline Comparison</a>
       <a class="navbar-item" href="#zoom-insets">Zoom Insets</a>
       <a class="navbar-item" href="#quantitative">Quantitative</a>
+      <a class="navbar-item" href="#data-source">Data Source</a>
       <a class="navbar-item" href="#bibtex">BibTeX</a>
     </div>
   </div>
@@ -53,10 +56,18 @@
           </div>
           <p class="is-size-5 publication-venue">SIGGRAPH Asia 2026</p>
           <div class="publication-links">
+            <button class="button is-dark is-rounded" type="button" disabled title="Coming soon">
+              <span class="icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></span>
+              <span>Paper</span>
+            </button>
             <a class="button is-dark is-rounded" href="https://github.com/aiiu-lab/Refocusing-Any-Video" target="_blank" rel="noopener noreferrer">
               <span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span>
               <span>Code</span>
             </a>
+            <button class="button is-dark is-rounded" type="button" disabled title="Coming soon">
+              <span class="icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></span>
+              <span>Demo</span>
+            </button>
           </div>
         </div>
       </div>
@@ -90,6 +101,17 @@
       <h2 class="subtitle has-text-centered">
         TL;DR: Refocus anything in a video after capture. We render smooth, temporally consistent bokeh at user-specified dynamic focal planes.
       </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="fast-forward" aria-label="Fast-forward video">
+  <div class="container is-max-desktop">
+    <div class="item">
+      <video controls autoplay muted loop playsinline preload="metadata" aria-label="Refocusing Any Video fast-forward video">
+        <source src="./asset/SA26_fast-forward.mp4" type="video/mp4">
+        Your browser does not support embedded video.
+      </video>
     </div>
   </div>
 </section>
@@ -136,6 +158,350 @@
           <div class="item">
             <video class="autoplay-media" src="./asset/results/Video2/rav_stage2_refocus_web.mp4" autoplay muted loop playsinline preload="metadata"></video>
             <div class="result-caption">RAV output</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="baselines">
+  <div class="container is-max-video">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Baseline Comparison</h2>
+        <div class="content has-text-justified">
+          <p>
+            Compare RAV with DiffCamera, GenFocus, and Learn2Refocus across six scenes. Each sample includes the input video,
+            input and target focus maps, and ground truth. Focus maps use grayscale, with white indicating the focal plane.
+          </p>
+        </div>
+        <div class="zoom-carousel" data-zoom-carousel data-interval="7000">
+          <button class="zoom-carousel-arrow is-left" type="button" aria-label="Previous baseline sample">
+          </button>
+          <div class="zoom-carousel-viewport">
+            <article class="zoom-carousel-slide is-active" aria-hidden="false" aria-label="Baseline sample 1 of 6">
+              <div class="comparison-grid baseline-grid">
+                <div class="item">
+                  <video class="autoplay-media" autoplay controls muted loop playsinline preload="metadata" aria-label="Input, baseline sample 1">
+                    <source src="./asset/baselines/04b9b8a5-4527-4d16-8eda-3daf06a2fb50/01_input.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay controls muted loop playsinline preload="metadata" aria-label="Input focus map, baseline sample 1">
+                    <source src="./asset/baselines/04b9b8a5-4527-4d16-8eda-3daf06a2fb50/02_input_focus_map.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input focus map</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay controls muted loop playsinline preload="metadata" aria-label="Target focus map, baseline sample 1">
+                    <source src="./asset/baselines/04b9b8a5-4527-4d16-8eda-3daf06a2fb50/03_target_focus_map.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Target focus map</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay controls muted loop playsinline preload="metadata" aria-label="Ground truth, baseline sample 1">
+                    <source src="./asset/baselines/04b9b8a5-4527-4d16-8eda-3daf06a2fb50/04_ground_truth.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Ground truth</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay controls muted loop playsinline preload="metadata" aria-label="DiffCamera, baseline sample 1">
+                    <source src="./asset/baselines/04b9b8a5-4527-4d16-8eda-3daf06a2fb50/05_diffcamera.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">DiffCamera</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay controls muted loop playsinline preload="metadata" aria-label="GenFocus, baseline sample 1">
+                    <source src="./asset/baselines/04b9b8a5-4527-4d16-8eda-3daf06a2fb50/07_genfocus.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">GenFocus</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" autoplay controls muted loop playsinline preload="metadata" aria-label="Learn2Refocus, baseline sample 1">
+                    <source src="./asset/baselines/04b9b8a5-4527-4d16-8eda-3daf06a2fb50/06_learn2refocus.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Learn2Refocus</div>
+                </div>
+                <div class="item ours">
+                  <video class="autoplay-media" autoplay controls muted loop playsinline preload="metadata" aria-label="RAV (ours), baseline sample 1">
+                    <source src="./asset/baselines/04b9b8a5-4527-4d16-8eda-3daf06a2fb50/08_rav.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">RAV (ours)</div>
+                </div>
+              </div>
+            </article>
+            <article class="zoom-carousel-slide" aria-hidden="true" aria-label="Baseline sample 2 of 6">
+              <div class="comparison-grid baseline-grid">
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Input, baseline sample 2">
+                    <source src="./asset/baselines/12749f9c-c018-4190-9950-425780029a93/01_input.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Input focus map, baseline sample 2">
+                    <source src="./asset/baselines/12749f9c-c018-4190-9950-425780029a93/02_input_focus_map.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input focus map</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Target focus map, baseline sample 2">
+                    <source src="./asset/baselines/12749f9c-c018-4190-9950-425780029a93/03_target_focus_map.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Target focus map</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Ground truth, baseline sample 2">
+                    <source src="./asset/baselines/12749f9c-c018-4190-9950-425780029a93/04_ground_truth.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Ground truth</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="DiffCamera, baseline sample 2">
+                    <source src="./asset/baselines/12749f9c-c018-4190-9950-425780029a93/05_diffcamera.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">DiffCamera</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="GenFocus, baseline sample 2">
+                    <source src="./asset/baselines/12749f9c-c018-4190-9950-425780029a93/07_genfocus.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">GenFocus</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Learn2Refocus, baseline sample 2">
+                    <source src="./asset/baselines/12749f9c-c018-4190-9950-425780029a93/06_learn2refocus.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Learn2Refocus</div>
+                </div>
+                <div class="item ours">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="RAV (ours), baseline sample 2">
+                    <source src="./asset/baselines/12749f9c-c018-4190-9950-425780029a93/08_rav.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">RAV (ours)</div>
+                </div>
+              </div>
+            </article>
+            <article class="zoom-carousel-slide" aria-hidden="true" aria-label="Baseline sample 3 of 6">
+              <div class="comparison-grid baseline-grid">
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Input, baseline sample 3">
+                    <source src="./asset/baselines/59afacb3-adb5-44fe-9dab-4194b68417c8/01_input.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Input focus map, baseline sample 3">
+                    <source src="./asset/baselines/59afacb3-adb5-44fe-9dab-4194b68417c8/02_input_focus_map.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input focus map</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Target focus map, baseline sample 3">
+                    <source src="./asset/baselines/59afacb3-adb5-44fe-9dab-4194b68417c8/03_target_focus_map.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Target focus map</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Ground truth, baseline sample 3">
+                    <source src="./asset/baselines/59afacb3-adb5-44fe-9dab-4194b68417c8/04_ground_truth.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Ground truth</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="DiffCamera, baseline sample 3">
+                    <source src="./asset/baselines/59afacb3-adb5-44fe-9dab-4194b68417c8/05_diffcamera.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">DiffCamera</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="GenFocus, baseline sample 3">
+                    <source src="./asset/baselines/59afacb3-adb5-44fe-9dab-4194b68417c8/07_genfocus.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">GenFocus</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Learn2Refocus, baseline sample 3">
+                    <source src="./asset/baselines/59afacb3-adb5-44fe-9dab-4194b68417c8/06_learn2refocus.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Learn2Refocus</div>
+                </div>
+                <div class="item ours">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="RAV (ours), baseline sample 3">
+                    <source src="./asset/baselines/59afacb3-adb5-44fe-9dab-4194b68417c8/08_rav.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">RAV (ours)</div>
+                </div>
+              </div>
+            </article>
+            <article class="zoom-carousel-slide" aria-hidden="true" aria-label="Baseline sample 4 of 6">
+              <div class="comparison-grid baseline-grid">
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Input, baseline sample 4">
+                    <source src="./asset/baselines/a292e712-f9ea-4763-8e1a-ac56621a5d1b/01_input.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Input focus map, baseline sample 4">
+                    <source src="./asset/baselines/a292e712-f9ea-4763-8e1a-ac56621a5d1b/02_input_focus_map.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input focus map</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Target focus map, baseline sample 4">
+                    <source src="./asset/baselines/a292e712-f9ea-4763-8e1a-ac56621a5d1b/03_target_focus_map.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Target focus map</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Ground truth, baseline sample 4">
+                    <source src="./asset/baselines/a292e712-f9ea-4763-8e1a-ac56621a5d1b/04_ground_truth.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Ground truth</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="DiffCamera, baseline sample 4">
+                    <source src="./asset/baselines/a292e712-f9ea-4763-8e1a-ac56621a5d1b/05_diffcamera.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">DiffCamera</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="GenFocus, baseline sample 4">
+                    <source src="./asset/baselines/a292e712-f9ea-4763-8e1a-ac56621a5d1b/07_genfocus.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">GenFocus</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Learn2Refocus, baseline sample 4">
+                    <source src="./asset/baselines/a292e712-f9ea-4763-8e1a-ac56621a5d1b/06_learn2refocus.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Learn2Refocus</div>
+                </div>
+                <div class="item ours">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="RAV (ours), baseline sample 4">
+                    <source src="./asset/baselines/a292e712-f9ea-4763-8e1a-ac56621a5d1b/08_rav.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">RAV (ours)</div>
+                </div>
+              </div>
+            </article>
+            <article class="zoom-carousel-slide" aria-hidden="true" aria-label="Baseline sample 5 of 6">
+              <div class="comparison-grid baseline-grid">
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Input, baseline sample 5">
+                    <source src="./asset/baselines/b27e6f4c-fb68-489d-92d1-3180882e4266/01_input.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Input focus map, baseline sample 5">
+                    <source src="./asset/baselines/b27e6f4c-fb68-489d-92d1-3180882e4266/02_input_focus_map.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input focus map</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Target focus map, baseline sample 5">
+                    <source src="./asset/baselines/b27e6f4c-fb68-489d-92d1-3180882e4266/03_target_focus_map.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Target focus map</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Ground truth, baseline sample 5">
+                    <source src="./asset/baselines/b27e6f4c-fb68-489d-92d1-3180882e4266/04_ground_truth.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Ground truth</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="DiffCamera, baseline sample 5">
+                    <source src="./asset/baselines/b27e6f4c-fb68-489d-92d1-3180882e4266/05_diffcamera.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">DiffCamera</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="GenFocus, baseline sample 5">
+                    <source src="./asset/baselines/b27e6f4c-fb68-489d-92d1-3180882e4266/07_genfocus.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">GenFocus</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Learn2Refocus, baseline sample 5">
+                    <source src="./asset/baselines/b27e6f4c-fb68-489d-92d1-3180882e4266/06_learn2refocus.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Learn2Refocus</div>
+                </div>
+                <div class="item ours">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="RAV (ours), baseline sample 5">
+                    <source src="./asset/baselines/b27e6f4c-fb68-489d-92d1-3180882e4266/08_rav.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">RAV (ours)</div>
+                </div>
+              </div>
+            </article>
+            <article class="zoom-carousel-slide" aria-hidden="true" aria-label="Baseline sample 6 of 6">
+              <div class="comparison-grid baseline-grid">
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Input, baseline sample 6">
+                    <source src="./asset/baselines/d4bdcc6f-b5da-4caf-9d56-d791d2408fb1/01_input.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Input focus map, baseline sample 6">
+                    <source src="./asset/baselines/d4bdcc6f-b5da-4caf-9d56-d791d2408fb1/02_input_focus_map.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Input focus map</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Target focus map, baseline sample 6">
+                    <source src="./asset/baselines/d4bdcc6f-b5da-4caf-9d56-d791d2408fb1/03_target_focus_map.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Target focus map</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Ground truth, baseline sample 6">
+                    <source src="./asset/baselines/d4bdcc6f-b5da-4caf-9d56-d791d2408fb1/04_ground_truth.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Ground truth</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="DiffCamera, baseline sample 6">
+                    <source src="./asset/baselines/d4bdcc6f-b5da-4caf-9d56-d791d2408fb1/05_diffcamera.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">DiffCamera</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="GenFocus, baseline sample 6">
+                    <source src="./asset/baselines/d4bdcc6f-b5da-4caf-9d56-d791d2408fb1/07_genfocus.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">GenFocus</div>
+                </div>
+                <div class="item">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="Learn2Refocus, baseline sample 6">
+                    <source src="./asset/baselines/d4bdcc6f-b5da-4caf-9d56-d791d2408fb1/06_learn2refocus.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">Learn2Refocus</div>
+                </div>
+                <div class="item ours">
+                  <video class="autoplay-media" controls muted loop playsinline preload="none" aria-label="RAV (ours), baseline sample 6">
+                    <source src="./asset/baselines/d4bdcc6f-b5da-4caf-9d56-d791d2408fb1/08_rav.mp4" type="video/mp4">
+                  </video>
+                  <div class="result-caption">RAV (ours)</div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <button class="zoom-carousel-arrow is-right" type="button" aria-label="Next baseline sample">
+          </button>
+          <div class="zoom-carousel-dots" aria-label="Baseline sample selector">
+            <button class="is-active" type="button" aria-label="Show baseline sample 1" aria-current="true"></button>
+            <button type="button" aria-label="Show baseline sample 2"></button>
+            <button type="button" aria-label="Show baseline sample 3"></button>
+            <button type="button" aria-label="Show baseline sample 4"></button>
+            <button type="button" aria-label="Show baseline sample 5"></button>
+            <button type="button" aria-label="Show baseline sample 6"></button>
           </div>
         </div>
       </div>
@@ -427,6 +793,7 @@
       ↓ Lower is better. ↑ Higher is better. In method comparisons, <span class="best">red bold</span> marks the best result
       and <span class="second">blue underlined</span> marks the second best. IDS measures identity similarity on the CelebV-HQ-AIF face subset only.
     </p>
+    <p class="table-note table-scroll-hint">Scroll tables horizontally to view all columns.</p>
 
     <h3 class="title is-4 result-heading" id="refocusing-comparison-title">Video Refocusing</h3>
     <!-- Source: SIGGRAPH_Asia_2026_RAV_Final/sec/4_exp.tex, tab:main_quant. -->
@@ -608,6 +975,18 @@
       </table>
     </div>
     <p class="table-note" id="runtime-note">† DiffCamera is evaluated at 512 × 512 because its released model does not support 512 × 896 inputs; its runtime uses a different resolution.</p>
+  </div>
+</section>
+
+<section class="section" id="data-source" aria-labelledby="data-source-title">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="data-source-title">Data Source</h2>
+    <div class="content">
+      <p>
+        We adapted Ultra Video to create <strong>Ultra Video All in Focus (UltraVideo-AIF)</strong>,
+        which we use for both qualitative and quantitative evaluation.
+      </p>
+    </div>
   </div>
 </section>
 

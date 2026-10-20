@@ -65,6 +65,7 @@ body {
   border-radius: 9999px;
   color: #fff;
   display: inline-flex;
+  font: inherit;
   gap: 0.5rem;
   padding: 0.5rem 1.25rem;
   text-decoration: none;
@@ -72,6 +73,12 @@ body {
 
 .publication-links .button:hover {
   background: #292929;
+}
+
+.publication-links .button:disabled {
+  background: #363636;
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .publication-links .button:focus-visible {
@@ -445,8 +452,8 @@ video,
   white-space: nowrap;
 }
 
-.rav-table td,
-.rav-table thead th:not(:first-child) {
+.table.rav-table td,
+.table.rav-table thead th:not(:first-child) {
   text-align: right;
 }
 
@@ -458,12 +465,12 @@ video,
   min-width: 700px;
 }
 
-.user-study-table td:nth-child(2),
-.user-study-table thead th:nth-child(2) {
+.table.user-study-table td:nth-child(2),
+.table.user-study-table thead th:nth-child(2) {
   text-align: left;
 }
 
-.comparison-group-start > * {
+.rav-table .comparison-group-start > * {
   border-top: 2px solid #ccc;
 }
 
@@ -475,6 +482,11 @@ video,
   color: #555;
   font-size: 0.9rem;
   line-height: 1.6;
+}
+
+.table-scroll-hint {
+  display: none;
+  margin-top: 0.75rem;
 }
 
 .table-container:focus-visible {
@@ -580,6 +592,10 @@ video,
 }
 
 @media screen and (max-width: 768px) {
+  .table-scroll-hint {
+    display: block;
+  }
+
   .title.is-1 {
     font-size: 2.15rem;
   }
