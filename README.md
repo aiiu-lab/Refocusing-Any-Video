@@ -2,7 +2,7 @@
 
 **SIGGRAPH Asia 2026**
 
-Chee Kim Gan, [Pin-Yen Chiu](https://itsnickchiu.github.io/), I-Sheng Fang, Jun-Cheng Chen  
+[Chee Kim Gan](https://gancheekim.github.io/kennygan.github.io/), [Pin-Yen Chiu](https://itsnickchiu.github.io/), [I-Sheng Fang](https://ishengfang.github.io), [Jun-Cheng Chen](https://homepage.citi.sinica.edu.tw/pages/pullpull/index_en.html)
 Research Center for Information Technology Innovation, Academia Sinica
 
 Refocusing Any Video (RAV) recovers an all-in-focus video with **Video Defocus Deblurring (VDD)**, then uses **Video Bokeh Rendering (VBR)** to refocus it at a chosen focal plane. Optional identity adapters guide face restoration using reference images.
