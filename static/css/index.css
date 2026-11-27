@@ -269,6 +269,14 @@ video,
   margin-bottom: 1.5rem;
 }
 
+.publication-logo {
+  display: block;
+  width: 240px;
+  max-width: 60%;
+  height: auto;
+  margin: 0 auto 1.25rem;
+}
+
 .teaser-grid .column {
   min-width: 0;
 }
